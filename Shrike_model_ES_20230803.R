@@ -119,14 +119,14 @@ interflex(estimator = "raw",
           method="logit",
           ncols=3, theme.bw = TRUE, span=30)   
 
-### 1.1 TRIM the dataset to reach common support ------------------------------
+### TRIM the dataset to reach common support ------------------------------
 # use three different thresholds, in a sensitivity analysis
 quantile(lces$AES, probs = c(0.9, 0.95, 0.99))           # 90% -> 0.06500 | 95% -> 0.13150 | 99% -> 0.28265 
 lces = lces[which(lces$AES <= 0.06500),]  # grid-cells left:         2016 |       2124     |         2213 
 # repeat the common support check above via the interflex function and move to the next cutoff value for the trimming
 
 # produce scatter plots to check for correlation among variables
-lceso = lces[order(lces$presence, decreasing=F),]     #exported 950x750
+lceso = lces[order(lces$presence, decreasing=F),]     
 pairs.panels(lceso[,c("presence", "AES", "SHRUBS", "LANDDIV", "GRASS", "ARABLE", "FOREST", "ORCHARD", "TMAX", "PRECIP", "ELEVATION")], 
              bg=c("blue","yellow")[as.factor(lceso$presence)], pch=21,
              method = "spearman", hist.col = "darkorange", density = TRUE, ellipses = FALSE )
@@ -207,8 +207,8 @@ p8 = visreg(best1, "AES", scale="response", by="LANDDIV", gg=TRUE, line=list(col
   ylab("Occurrence probability")
 
 
-## 5. EFFECT MAPS -------------------------------------------------------------
-### make an effect map to identify where it would be most effective to convert grassland to AES
+## EFFECT MAPS -------------------------------------------------------------
+# make an effect map to identify where it would be most effective to convert grassland to AES
 # load the whole Catalan grid
 gridES = st_read("C:/Users/sroilo/Desktop/BESTMAP documents/Data/Across_CS/ES/Grid_vars_env_20221216.shp")
 # filter to only retain the grid cells for which land-cover data is complete 
