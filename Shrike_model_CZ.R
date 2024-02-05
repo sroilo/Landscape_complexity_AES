@@ -1,6 +1,6 @@
 ###################################################
 #
-# Title: Shrike_model_CZ_20230803.R
+# Title: Shrike_model_CZ.R
 # Purpose: run a Species Distribution Model for the red-backed shrike in South Moravia, Czech Republic, to quantify the effect of grassland-based Agri-Environmental Schemes (AES)
 #          on the shrike's occurrence, and to test whether this effect is moderated by landscape complexity. 
 # Author: Stephanie Roilo, Dresden University of Technology (TUD)
